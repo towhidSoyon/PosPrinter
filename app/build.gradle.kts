@@ -39,6 +39,12 @@ android {
     buildFeatures {
         compose = true
     }
+
+    sourceSets {
+        getByName("main") {
+            jniLibs.srcDirs("libs")
+        }
+    }
 }
 
 dependencies {
@@ -63,4 +69,5 @@ dependencies {
     implementation("com.google.dagger:hilt-android:2.49")
     implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
     ksp("com.google.dagger:hilt-compiler:2.49")
+    implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.aar", "*.jar"))))
 }

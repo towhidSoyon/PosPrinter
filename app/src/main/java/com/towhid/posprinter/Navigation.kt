@@ -1,6 +1,7 @@
 package com.towhid.posprinter
 
 import androidx.compose.runtime.Composable
+import androidx.navigation.NavHostController
 import androidx.navigation.Navigation
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -14,7 +15,18 @@ fun Navigation() {
         navController = navController,
         startDestination = "home"
     ) {
-        composable("home") { HomeScreen(navController) }
-        composable("bluetooth") { BluetoothScreen() }
+        composable("home") {
+            HomeScreen(navController = navController)
+        }
+
+        composable("bluetooth") {
+            BluetoothScreen(navController = navController)
+        }
+
+        composable("pos_print") {
+            PosPrintScreen(navController = navController)
+        }
     }
 }
+
+
